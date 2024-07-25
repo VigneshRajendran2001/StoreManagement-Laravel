@@ -7,6 +7,10 @@
 <link rel="stylesheet" href="{{asset('assets/vendor/css/pages/page-auth.css')}}">
 @endsection
 
+
+
+
+
 @section('content')
 <div class="position-relative">
   <div class="authentication-wrapper authentication-basic container-p-y">
@@ -83,15 +87,16 @@
                 </div>
               </div>
             </div>
-            
+         
+          
             @if($errors->any())
                 <div>
-                  <!-- <ul> -->
+                
                     @foreach($errors->all() as $error)
-                    <!-- <li style="color:red;">{{$error}}</li> -->
+                  
                     <div style="color:red;">{{$error}}</div>
                     @endforeach
-                  <!-- </ul> -->
+                 
                 </div>             
           @endif
           <br>
@@ -128,4 +133,5 @@
     </div>
   </div>
 </div>
+
 @endsection

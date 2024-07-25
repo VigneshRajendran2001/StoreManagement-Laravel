@@ -22,6 +22,7 @@ class Kernel extends HttpKernel
     \App\Http\Middleware\TrimStrings::class,
     \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     // 'auto_logout' => \App\Http\Middleware\AuthLogoutMiddleware::class,
+    // 'storemanagement' => \App\Http\Middleware\StoreManagement::class,
   ];
 
   /**

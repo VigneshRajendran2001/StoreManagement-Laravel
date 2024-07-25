@@ -14,10 +14,10 @@ class LoginBasic extends Controller
   {
     // $user_id = Auth::user()->id;
     // if ($user_id != '') {
-    // return redirect('dashboard-analytics');
-    // }
-
+    //   return redirect('dashboard-analytics');
+    // } else {
     return view('content.authentications.auth-login-basic');
+    // }
   }
 
   public function auth(Request $request)

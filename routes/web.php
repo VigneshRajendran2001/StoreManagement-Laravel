@@ -44,13 +44,16 @@ use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 
+Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
+Route::post('/register', [RegisterBasic::class, 'store']);
+
 Route::group(['middleware' => 'login_middleware'], function () {
   Route::get('/', [LoginBasic::class, 'index']);
   Route::get('/login', [LoginBasic::class, 'index']);
   Route::post('/login', [LoginBasic::class, 'auth'])->name('login');
 });
 
-Route::group(['middleware' => 'storemanagement', 'middleware' => 'auto_logout'], function () {
+Route::group(['middleware' => ['storemanagement', 'auto_logout']], function () {
   // Main Page Route
   Route::get('/dashboard-analytics', [Analytics::class, 'index']);
 
@@ -80,8 +83,7 @@ Route::group(['middleware' => 'storemanagement', 'middleware' => 'auto_logout'],
   Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
 
   Route::get('/logout', [LoginBasic::class, 'logout']);
-  Route::get('/auth/register-basic', [RegisterBasic::class, 'index'])->name('auth-register-basic');
-  Route::post('/register', [RegisterBasic::class, 'store']);
+
   Route::get('/auth/forgot-password-basic', [ForgotPasswordBasic::class, 'index'])->name('auth-reset-password-basic');
 
   // cards
