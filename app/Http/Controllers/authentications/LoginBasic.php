@@ -39,6 +39,8 @@ class LoginBasic extends Controller
     }
 
     if (Auth::attempt($credentials)) {
+      return redirect('/dashboard-analytics')->with(['status' => 'Logged In Successfully...!']);
+
       // $userData = Auth::user();
       // // $user_id = Auth::user()->id;
       // // $user_id = $userData['id'];
@@ -50,8 +52,6 @@ class LoginBasic extends Controller
 
       // dd($user_id);
       // exit();
-
-      return redirect('dashboard-analytics')->with(['status' => 'Logged In Successfully']);
     }
     return redirect('/')->withErrors([
       'status' => 'Failed to Login.Given Ceredentials does not match...!',
